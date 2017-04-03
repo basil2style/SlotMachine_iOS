@@ -26,6 +26,7 @@ class GameScene: SKScene {
     var playerBet = 100;
     
     let spinBt = SKAction.playSoundFileNamed("Pickup-coin 11.wav", waitForCompletion: false)
+    let jackpot = SKAction.playSoundFileNamed("Pickup-coin 11.wav", waitForCompletion: false)
     
     
     override func didMove(to view: SKView) {
