@@ -25,6 +25,9 @@ class GameScene: SKScene {
     var jackpot = 5000;
     var playerBet = 100;
     
+    let spinBt = SKAction.playSoundFileNamed("Pickup-coin 11.wav", waitForCompletion: false)
+    
+    
     override func didMove(to view: SKView) {
         let bgTexture = SKTexture(imageNamed: "slotmachine.png");
         bg = SKSpriteNode(texture: bgTexture)
@@ -74,7 +77,7 @@ class GameScene: SKScene {
         {
             if name == "SpinButton" {
 //                print("Touched")
-                
+                run(spinBt)
                 if(wheelActive == false && playerMoney > 0){
                     print("spinning");
                     //playerMoney -= playerBet
