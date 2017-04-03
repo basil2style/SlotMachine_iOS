@@ -21,6 +21,8 @@ class GameScene: SKScene {
     var wheelActive:Bool = false
     
     var playerMoney = 1000;
+    var jackpot = 5000;
+    var playerBet = 0;
     
     override func didMove(to view: SKView) {
         let bgTexture = SKTexture(imageNamed: "slotmachine.png");
@@ -78,6 +80,7 @@ class GameScene: SKScene {
             }
             else if name == "reset" {
                  print("Touched")
+                playerMoney = 1000;
             }
         }
 
