@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     let slotOptions = ["heart","bell","money","cones","star"]
+    //let slotOptions = ["heart"]
     
     var currentWheelStringValue1:String = ""
     var currentWheelStringValue2:String = ""
@@ -22,7 +23,7 @@ class GameScene: SKScene {
     
     var playerMoney = 1000;
     var jackpot = 5000;
-    var playerBet = 0;
+    var playerBet = 100;
     
     override func didMove(to view: SKView) {
         let bgTexture = SKTexture(imageNamed: "slotmachine.png");
@@ -42,6 +43,19 @@ class GameScene: SKScene {
         reset.name = "reset"
         reset.isUserInteractionEnabled = false
         
+        let bet100:SKSpriteNode = self.childNode(withName: "bet100") as! SKSpriteNode
+        bet100.name = "bet100"
+        bet100.isUserInteractionEnabled = false
+        
+        let totalCredits:SKLabelNode = self.childNode(withName: "totalCredits") as! SKLabelNode
+        let bet:SKLabelNode = self.childNode(withName: "bet") as! SKLabelNode
+        
+        totalCredits.text = "\(playerMoney)"
+        bet.text = "\(playerBet)"
+        
+        let winLabel:SKLabelNode = self.childNode(withName: "winLabel") as! SKLabelNode
+        winLabel.text = "PLAY!!"
+        
     }
     
     
@@ -52,15 +66,20 @@ class GameScene: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
+        let bet:SKLabelNode = self.childNode(withName: "bet") as! SKLabelNode
+        let totalCredits:SKLabelNode = self.childNode(withName: "totalCredits") as! SKLabelNode
+        let winLabel:SKLabelNode = self.childNode(withName: "winLabel") as! SKLabelNode
+        
         if let name = touchedNode.name
         {
             if name == "SpinButton" {
 //                print("Touched")
                 
-                if(wheelActive == false){
+                if(wheelActive == false && playerMoney > 0){
                     print("spinning");
-                    
-                    let wait:SKAction = SKAction.wait(forDuration: 1)
+                    //playerMoney -= playerBet
+                    totalCredits.text = "\(playerMoney)"
+                    let wait:SKAction = SKAction.wait(forDuration: 0.5)
                     let spinWheel1:SKAction = SKAction.run({
                         self.spinWheel(whichWheel: 1)
                     })
@@ -77,26 +96,54 @@ class GameScene: SKScene {
                     self.run(SKAction.sequence([wait,spinWheel1,wait,spinWheel2,wait,spinWheel3,wait,testWheelValues]))
                     
                 }
+                else {
+                    winLabel.text = "Recharge"
+                }
             }
             else if name == "reset" {
                  print("Touched")
                 playerMoney = 1000;
+                playerBet = 100
+                bet.text = "\(playerBet)"
+                totalCredits.text = "\(playerMoney)"
+                
             }
+            else if name == "bet100" {
+                if(playerMoney > 0) {
+                    print("+100")
+                    playerBet += 100
+                    playerMoney -= 100
+                    bet.text = "\(playerBet)"
+                    totalCredits.text = "\(playerMoney)"
+                    
+                }
+                
+            }
+            
         }
 
     }
     
     func testValues()  {
         let winLabel:SKLabelNode = self.childNode(withName: "winLabel") as! SKLabelNode
+        let totalCredits:SKLabelNode = self.childNode(withName: "totalCredits") as! SKLabelNode
+        let bet:SKLabelNode = self.childNode(withName: "bet") as! SKLabelNode
+        let winnerPaid:SKLabelNode = self.childNode(withName: "winnerPaid") as! SKLabelNode
+        
         if (currentWheelStringValue1 == currentWheelStringValue2 && currentWheelStringValue2 == currentWheelStringValue3) {
             
             winLabel.text = "WIN"
-            
+            playerMoney += jackpot;
+            winnerPaid.text = "\(playerMoney)"
             print("You won")
         }else {
             winLabel.text = "LOSS"
             print("Please play again")
+            playerMoney -= playerBet;
+            winnerPaid.text = "0"
+            
         }
+        
         
     }
     
