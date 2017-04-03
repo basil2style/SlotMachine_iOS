@@ -54,6 +54,25 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		A02365ED1E930A7B001FF1DA /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				FDD20FBD1E8B0AEA00569C98 /* GameScene.swift */,
+				FDD20FBF1E8B0AEA00569C98 /* GameViewController.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		A02365EE1E930A8A001FF1DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDD20FB91E8B0AEA00569C98 /* GameScene.sks */,
+				FDD20FC11E8B0AEA00569C98 /* Main.storyboard */,
+				FDD20FC61E8B0AEA00569C98 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		FDD20FAB1E8B0AE900569C98 = {
 			isa = PBXGroup;
 			children = (
@@ -73,15 +92,12 @@
 		FDD20FB61E8B0AE900569C98 /* SlotMachine */ = {
 			isa = PBXGroup;
 			children = (
+				A02365EE1E930A8A001FF1DA /* Views */,
+				A02365ED1E930A7B001FF1DA /* Controls */,
 				A02365EC1E9307B9001FF1DA /* Assets */,
 				FDD20FB71E8B0AE900569C98 /* AppDelegate.swift */,
-				FDD20FB91E8B0AEA00569C98 /* GameScene.sks */,
 				FDD20FBB1E8B0AEA00569C98 /* Actions.sks */,
-				FDD20FBD1E8B0AEA00569C98 /* GameScene.swift */,
-				FDD20FBF1E8B0AEA00569C98 /* GameViewController.swift */,
-				FDD20FC11E8B0AEA00569C98 /* Main.storyboard */,
 				FDD20FC41E8B0AEA00569C98 /* Assets.xcassets */,
-				FDD20FC61E8B0AEA00569C98 /* LaunchScreen.storyboard */,
 				FDD20FC91E8B0AEA00569C98 /* Info.plist */,
 			);
 			path = SlotMachine;
