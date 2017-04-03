@@ -20,6 +20,8 @@ class GameScene: SKScene {
     var bg = SKSpriteNode()
     var wheelActive:Bool = false
     
+    var playerMoney = 1000;
+    
     override func didMove(to view: SKView) {
         let bgTexture = SKTexture(imageNamed: "slotmachine.png");
         bg = SKSpriteNode(texture: bgTexture)
@@ -33,7 +35,10 @@ class GameScene: SKScene {
       //  self.addChild(spin)
         spin.name = "SpinButton"
         spin.isUserInteractionEnabled = false
-        
+       
+        let reset:SKSpriteNode = self.childNode(withName: "reset") as! SKSpriteNode
+        reset.name = "reset"
+        reset.isUserInteractionEnabled = false
         
     }
     
@@ -47,8 +52,7 @@ class GameScene: SKScene {
         
         if let name = touchedNode.name
         {
-            if name == "SpinButton"
-            {
+            if name == "SpinButton" {
 //                print("Touched")
                 
                 if(wheelActive == false){
@@ -71,6 +75,9 @@ class GameScene: SKScene {
                     self.run(SKAction.sequence([wait,spinWheel1,wait,spinWheel2,wait,spinWheel3,wait,testWheelValues]))
                     
                 }
+            }
+            else if name == "reset" {
+                 print("Touched")
             }
         }
 
