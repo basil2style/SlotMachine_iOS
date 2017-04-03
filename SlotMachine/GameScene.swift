@@ -30,6 +30,9 @@ class GameScene: SKScene {
         self.addChild(bg)
         
         let spin:SKSpriteNode = self.childNode(withName: "spin_bt") as! SKSpriteNode
+      //  self.addChild(spin)
+        spin.name = "SpinButton"
+        spin.isUserInteractionEnabled = false
         
         
     }
@@ -37,26 +40,40 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if(wheelActive == false){
-            print("spinning");
-            
-            let wait:SKAction = SKAction.wait(forDuration: 1)
-            let spinWheel1:SKAction = SKAction.run({
-                self.spinWheel(whichWheel: 1)
-            })
-            let spinWheel2:SKAction = SKAction.run({
-                self.spinWheel(whichWheel: 2)
-            })
-            let spinWheel3:SKAction = SKAction.run({
-                self.spinWheel(whichWheel: 3)
-            })
-            let testWheelValues:SKAction = SKAction.run({
-                self.testValues()
-            })
-            
-            self.run(SKAction.sequence([wait,spinWheel1,wait,spinWheel2,wait,spinWheel3,wait,testWheelValues]))
-            
+        //let touch:UITouch = touches as UITouch
+        let touch:UITouch = touches.first as! UITouch
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+        if let name = touchedNode.name
+        {
+            if name == "SpinButton"
+            {
+//                print("Touched")
+                
+                if(wheelActive == false){
+                    print("spinning");
+                    
+                    let wait:SKAction = SKAction.wait(forDuration: 1)
+                    let spinWheel1:SKAction = SKAction.run({
+                        self.spinWheel(whichWheel: 1)
+                    })
+                    let spinWheel2:SKAction = SKAction.run({
+                        self.spinWheel(whichWheel: 2)
+                    })
+                    let spinWheel3:SKAction = SKAction.run({
+                        self.spinWheel(whichWheel: 3)
+                    })
+                    let testWheelValues:SKAction = SKAction.run({
+                        self.testValues()
+                    })
+                    
+                    self.run(SKAction.sequence([wait,spinWheel1,wait,spinWheel2,wait,spinWheel3,wait,testWheelValues]))
+                    
+                }
+            }
         }
+
     }
     
     func testValues()  {
