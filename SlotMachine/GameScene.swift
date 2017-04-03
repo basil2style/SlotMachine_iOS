@@ -11,7 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    let slotOptions = ["banana","bell","flappy1","flappy2","orange"]
+    let slotOptions = ["heart","bell","money","cones","star"]
     
     var currentWheelStringValue1:String = ""
     var currentWheelStringValue2:String = ""
@@ -28,6 +28,10 @@ class GameScene: SKScene {
         bg.size.width = self.frame.width
         bg.zPosition = -1
         self.addChild(bg)
+        
+        let spin:SKSpriteNode = self.childNode(withName: "spin_bt") as! SKSpriteNode
+        
+        
     }
     
     
