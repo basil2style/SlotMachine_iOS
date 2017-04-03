@@ -73,7 +73,7 @@ class GameScene: SKScene {
         
         //let touch:UITouch = touches as UITouch
         
-        let touch:UITouch = touches.first as! UITouch
+        let touch:UITouch = touches.first!
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
@@ -145,8 +145,8 @@ class GameScene: SKScene {
     //This is the outcome function 
     func testValues()  {
         let winLabel:SKLabelNode = self.childNode(withName: "winLabel") as! SKLabelNode
-        let totalCredits:SKLabelNode = self.childNode(withName: "totalCredits") as! SKLabelNode
-        let bet:SKLabelNode = self.childNode(withName: "bet") as! SKLabelNode
+        //let totalCredits:SKLabelNode = self.childNode(withName: "totalCredits") as! SKLabelNode
+        //let bet:SKLabelNode = self.childNode(withName: "bet") as! SKLabelNode
         let winnerPaid:SKLabelNode = self.childNode(withName: "winnerPaid") as! SKLabelNode
         
         //JackPot
@@ -178,7 +178,7 @@ class GameScene: SKScene {
             currentWheelStringValue1 = wheelPick
             
             if (self.childNode(withName: "wheel1") != nil) {
-                if let wheel1:SKSpriteNode = self.childNode(withName: "wheel1") as! SKSpriteNode {
+                if let wheel1:SKSpriteNode = self.childNode(withName: "wheel1") as? SKSpriteNode {
                     wheel1.texture = SKTexture(imageNamed:wheelPick)
                 }
                 //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)
@@ -188,7 +188,7 @@ class GameScene: SKScene {
             currentWheelStringValue2 = wheelPick
            // sprite1.texture = SKTexture(imageNamed:wheelPick)
             if (self.childNode(withName: "wheel2") != nil) {
-                if let wheel2:SKSpriteNode = self.childNode(withName: "wheel2") as! SKSpriteNode {
+                if let wheel2:SKSpriteNode = self.childNode(withName: "wheel2") as? SKSpriteNode {
                     wheel2.texture = SKTexture(imageNamed:wheelPick)
                 }
                 //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)
@@ -198,7 +198,7 @@ class GameScene: SKScene {
             currentWheelStringValue3 = wheelPick
            // sprite1.texture = SKTexture(imageNamed:wheelPick)
             if (self.childNode(withName: "wheel3") != nil) {
-                if let wheel1:SKSpriteNode = self.childNode(withName: "wheel3") as! SKSpriteNode {
+                if let wheel1:SKSpriteNode = self.childNode(withName: "wheel3") as? SKSpriteNode {
                     wheel1.texture = SKTexture(imageNamed:wheelPick)
                 }
                 //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)

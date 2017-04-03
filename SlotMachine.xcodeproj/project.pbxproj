@@ -45,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A02365EC1E9307B9001FF1DA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FD86BB441E92F7F100E8ADEA /* Pickup-coin 11.wav */,
+				FD86BB461E92FA2700E8ADEA /* pacman_intermission.wav */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		FDD20FAB1E8B0AE900569C98 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +73,7 @@
 		FDD20FB61E8B0AE900569C98 /* SlotMachine */ = {
 			isa = PBXGroup;
 			children = (
+				A02365EC1E9307B9001FF1DA /* Assets */,
 				FDD20FB71E8B0AE900569C98 /* AppDelegate.swift */,
 				FDD20FB91E8B0AEA00569C98 /* GameScene.sks */,
 				FDD20FBB1E8B0AEA00569C98 /* Actions.sks */,
@@ -73,8 +83,6 @@
 				FDD20FC41E8B0AEA00569C98 /* Assets.xcassets */,
 				FDD20FC61E8B0AEA00569C98 /* LaunchScreen.storyboard */,
 				FDD20FC91E8B0AEA00569C98 /* Info.plist */,
-				FD86BB441E92F7F100E8ADEA /* Pickup-coin 11.wav */,
-				FD86BB461E92FA2700E8ADEA /* pacman_intermission.wav */,
 			);
 			path = SlotMachine;
 			sourceTree = "<group>";
