@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SlotMachine
 //
-//  Created by Basil on 2017-03-28.
+//  Created by Basil (300919992) & Luis (300869199) on 2017-03-28.
 //  Copyright © 2017 Centennial College. All rights reserved.
 //
 

@@ -12,7 +12,6 @@ import GameplayKit
 class GameScene: SKScene {
     
     let slotOptions = ["heart","bell","money","cones","star"]
-   // let slotOptions = ["heart"]
     
     var currentWheelStringValue1:String = ""
     var currentWheelStringValue2:String = ""
@@ -34,7 +33,7 @@ class GameScene: SKScene {
         //Background slot machine
         let bgTexture = SKTexture(imageNamed: "slotmachine.png");
         bg = SKSpriteNode(texture: bgTexture)
-        //bg.position = CGPoint(x: bgTexture.size().width * i, y: self.frame.midY)
+        
         bg.size.height = self.frame.height
         bg.size.width = self.frame.width
         bg.zPosition = -1
@@ -42,7 +41,7 @@ class GameScene: SKScene {
         
         //spritenode declaration for spin button
         let spin:SKSpriteNode = self.childNode(withName: "spin_bt") as! SKSpriteNode
-      //  self.addChild(spin)
+      
         spin.name = "SpinButton"
         spin.isUserInteractionEnabled = false
        
@@ -114,7 +113,7 @@ class GameScene: SKScene {
                     winLabel.text = "Recharge"
                 }
             }
-                //Rset Button
+            //Rset Button
             else if name == "reset" {
                  print("Touched")
                 playerMoney = 1000;
@@ -125,7 +124,7 @@ class GameScene: SKScene {
                 totalCredits.text = "\(playerMoney)"
                 
             }
-                //Bet100 button
+            //Bet100 button
             else if name == "bet100" {
                 if(playerMoney > 0) {
                     print("+100")
@@ -181,31 +180,30 @@ class GameScene: SKScene {
                 if let wheel1:SKSpriteNode = self.childNode(withName: "wheel1") as? SKSpriteNode {
                     wheel1.texture = SKTexture(imageNamed:wheelPick)
                 }
-                //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)
+                
             }
             
         } else if (whichWheel == 2) {
             currentWheelStringValue2 = wheelPick
-           // sprite1.texture = SKTexture(imageNamed:wheelPick)
+           
             if (self.childNode(withName: "wheel2") != nil) {
                 if let wheel2:SKSpriteNode = self.childNode(withName: "wheel2") as? SKSpriteNode {
                     wheel2.texture = SKTexture(imageNamed:wheelPick)
                 }
-                //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)
+                
             }
             
         } else if (whichWheel == 3) {
             currentWheelStringValue3 = wheelPick
-           // sprite1.texture = SKTexture(imageNamed:wheelPick)
+           
             if (self.childNode(withName: "wheel3") != nil) {
                 if let wheel1:SKSpriteNode = self.childNode(withName: "wheel3") as? SKSpriteNode {
                     wheel1.texture = SKTexture(imageNamed:wheelPick)
                 }
-                //self.childNode(withName: "wheel1").texture = SKTexture(imageNamed:wheelPick)
+                
             }
         }
     }
-    
     
     
     override func update(_ currentTime: TimeInterval) {
