@@ -19,7 +19,7 @@ class GameScene: SKScene {
     
     var bg = SKSpriteNode()
     var wheelActive:Bool = false
-    
+    var spriteArray = Array<SKTexture>();
     var playerMoney = 1000;
     var jackpot = 5000;
     var playerBet = 100;
